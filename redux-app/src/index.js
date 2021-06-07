@@ -4,18 +4,15 @@ import './index.css';
 
 import reportWebVitals from './reportWebVitals';
 import ComponentA from './App';
-import {createStore} from 'redux'
-import {Provider} from "react-redux"
-import reducer from "./reducers/dataReducer"
-const store = createStore(reducer)
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
+    
     <ComponentA />
-    </Provider>
+    
     
   </React.StrictMode>,
   document.getElementById('root')

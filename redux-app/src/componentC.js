@@ -1,9 +1,19 @@
 import React from "react";
+import {connect} from 'react-redux'
 
-function ComponentC (){
+
+
+function ComponentC (props){
+    
     return (
-        <p>hey</p>
+        <p>{props.inputValue}</p>
+        
     )
 }
 
-export default ComponentC;
+const mapStateToProps = (state) => {
+    return {inputValue : state.inputValue}
+           
+}
+
+export default connect(mapStateToProps)(ComponentC);

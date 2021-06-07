@@ -1,13 +1,32 @@
 import React from "react";
+import {connect} from 'react-redux'
 
 
-function ComponentB(){
-    function onChangeListener(e){
-        console.log(e.target.value)
-    }
+function ComponentB(props){
+    
     return (
-        <input type="text" name="" onChange={onChangeListener}/>
+        <div>
+            <input value={props.inputValue} onChange={props.inputChanged}/>
+            
+        </div>
     )
 }
+const mapStateToProps = (state) => {
+    return {inputValue : state.inputValue}
+           
+}
 
-export default ComponentB;
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        inputChanged : (evt) => {
+            
+            const action = {type : "INPUT_CHANGE" , text : evt.target.value};
+            dispatch(action);
+        }
+    }
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComponentB);
